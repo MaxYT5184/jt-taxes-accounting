@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - JT Tax & Accounting</title>
+    <meta name="description" content="Terms of Service for JT Tax & Accounting. Professional tax preparation and accounting services in Scranton, PA.">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Same CSS as other pages */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #1a56db; --primary-dark: #1e429f; --secondary: #047857;
+            --accent: #f59e0b; --light: #f8fafc; --dark: #1e293b; --gray: #64748b;
+            --light-gray: #e2e8f0; --border-radius: 8px;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --transition: all 0.3s ease;
+        }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; line-height: 1.6; color: var(--dark); }
+        .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Header & Navigation */
+        header { position: fixed; top: 0; width: 100%; z-index: 1000; background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; }
+        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .logo-img { width: 50px; height: 50px; object-fit: contain; }
+        .logo-text { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 1.5rem; color: var(--dark); }
+        .logo-text span { color: var(--primary); }
+        .nav-links { display: flex; list-style: none; gap: 30px; }
+        .nav-links a { text-decoration: none; color: var(--dark); font-weight: 500; position: relative; }
+        .nav-links a:hover { color: var(--primary); }
+        .nav-links a:after { content: ''; position: absolute; width: 0; height: 2px; background: var(--primary); bottom: -5px; left: 0; transition: var(--transition); }
+        .nav-links a:hover:after { width: 100%; }
+        .nav-links a.active { color: var(--primary); }
+        .nav-links a.active:after { width: 100%; }
+        .mobile-menu-btn { display: none; background: none; border: none; font-size: 1.5rem; color: var(--dark); cursor: pointer; }
+        
+        /* Page Header */
+        .page-header { padding-top: 150px; padding-bottom: 60px; background: linear-gradient(135deg, #f0f9ff 0%, #e6f7ff 100%); text-align: center; }
+        
+        /* Page Content */
+        .page-content { padding: 80px 0; }
+        .content-container h2 { color: var(--primary); margin-top: 30px; margin-bottom: 15px; }
+        .content-container h3 { color: var(--dark); margin-top: 20px; margin-bottom: 10px; }
+        .content-container p { margin-bottom: 20px; color: var(--gray); }
+        .content-container ul { margin-left: 20px; margin-bottom: 20px; color: var(--gray); }
+        .content-container li { margin-bottom: 10px; }
+        
+        /* Footer */
+        footer { background-color: var(--dark); color: white; padding: 70px 0 20px; }
+        .footer-content { display: flex; flex-wrap: wrap; gap: 50px; margin-bottom: 50px; }
+        .footer-col { flex: 1; min-width: 250px; }
+        .footer-col h3 { font-size: 1.3rem; margin-bottom: 25px; position: relative; }
+        .footer-col h3:after { content: ''; position: absolute; width: 40px; height: 3px; background: var(--primary); bottom: -10px; left: 0; }
+        .footer-col p { color: #cbd5e1; margin-bottom: 20px; }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 12px; }
+        .footer-links a { color: #cbd5e1; text-decoration: none; transition: var(--transition); }
+        .footer-links a:hover { color: white; padding-left: 5px; }
+        .social-links { display: flex; gap: 15px; margin-top: 20px; }
+        .social-links a { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 50%; color: white; transition: var(--transition); }
+        .social-links a:hover { background: var(--primary); transform: translateY(-3px); }
+        .copyright { text-align: center; padding-top: 20px; border-top: 1px solid #334155; color: #94a3b8; font-size: 0.9rem; }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links { position: fixed; top: 80px; left: 0; width: 100%; background: white; flex-direction: column; padding: 20px 0; box-shadow: 0 10px 10px rgba(0,0,0,0.1); transform: translateY(-100%); opacity: 0; visibility: hidden; transition: var(--transition); z-index: 999; }
+            .nav-links.active { transform: translateY(0); opacity: 1; visibility: visible; }
+            .mobile-menu-btn { display: block; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <img src="favicon.png" alt="JT Tax & Accounting Logo" class="logo-img">
+                    <div class="logo-text">JT <span>Tax & Accounting</span></div>
+                </a>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Terms of Service</h1>
+            <p>Last Updated: January 1, 2024</p>
+        </div>
+    </section>
+
+    <!-- Page Content -->
+    <section class="page-content">
+        <div class="container">
+            <div class="content-container">
+                <h2>1. Agreement to Terms</h2>
+                <p>By accessing or using the services provided by JT Tax & Accounting ("we," "us," or "our"), you agree to be bound by these Terms of Service. If you disagree with any part of the terms, you may not access our services.</p>
+                
+                <h2>2. Professional Services</h2>
+                <p>JT Tax & Accounting provides tax preparation, accounting, bookkeeping, and financial consulting services. Our services are provided by qualified professionals with 10+ years of experience, but we do not guarantee specific outcomes or tax savings.</p>
+                <p>You are responsible for providing accurate and complete information necessary for us to perform our services. We rely on the information you provide and are not responsible for errors resulting from incomplete or inaccurate information.</p>
+                
+                <h2>3. Client Responsibilities</h2>
+                <p>As a client, you agree to:</p>
+                <ul>
+                    <li>Provide all necessary documents and information in a timely manner</li>
+                    <li>Review all prepared documents for accuracy before signing or filing</li>
+                    <li>Make timely payments for services rendered</li>
+                    <li>Notify us of any changes in your financial situation or contact information</li>
+                    <li>Provide complete and accurate information for tax preparation</li>
+                    <li>Sign and file returns by applicable deadlines</li>
+                </ul>
+                
+                <h2>4. Fees and Payments</h2>
+                <p>Our fees are based on the complexity of the work and time required. We will provide an estimate before beginning work. Payment is due upon receipt of invoice unless other arrangements have been made in writing.</p>
+                <p>Late payments may be subject to interest charges of 1.5% per month on the outstanding balance. All fees are quoted in US dollars.</p>
+                
+                <h2>5. Confidentiality</h2>
+                <p>We maintain the confidentiality of all client information in accordance with professional standards and applicable laws. We will not disclose your information to third parties without your consent, except as required by law or necessary to provide our services.</p>
+                
+                <h2>6. Limitation of Liability</h2>
+                <p>JT Tax & Accounting's liability for any claim arising from our services shall not exceed the total fees paid by you for the specific service in question. We are not liable for indirect, incidental, or consequential damages.</p>
+                <p>We carry professional liability insurance as required by Pennsylvania regulations.</p>
+                
+                <h2>7. Termination</h2>
+                <p>Either party may terminate our engagement with written notice. Upon termination, you agree to pay for all services rendered up to the termination date. We will provide all completed work and documents in our possession.</p>
+                
+                <h2>8. Governing Law</h2>
+                <p>These Terms shall be governed by and construed in accordance with the laws of the Commonwealth of Pennsylvania, without regard to its conflict of law provisions.</p>
+                
+                <h2>9. Changes to Terms</h2>
+                <p>We reserve the right to modify these terms at any time. We will notify clients of any material changes. Continued use of our services after changes constitutes acceptance of the new terms.</p>
+                
+                <h2>10. Contact Information</h2>
+                <p>For questions about these Terms of Service, please contact us at:</p>
+                <p>JT Tax & Accounting<br>
+                2109 Dorothy Street<br>
+                Scranton, Pennsylvania 18504<br>
+                (570) 504-4296<br>
+                info@jt-taxes.com</p>
+                
+                <h2>11. Professional Licensing</h2>
+                <p>Our services are provided in compliance with Pennsylvania state regulations for tax preparation and accounting services. We maintain all required professional standards and continuing education requirements.</p>
+                
+                <h2>12. Electronic Communications</h2>
+                <p>By using our services, you consent to receive electronic communications from us. You agree that all agreements, notices, disclosures, and other communications that we provide to you electronically satisfy any legal requirement that such communications be in writing.</p>
+                
+                <p style="margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--light-gray);">
+                    <em>These Terms of Service were last updated on January 1, 2024 and are effective immediately.</em>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="index.html" class="logo" style="margin-bottom: 20px;">
+                        <div class="logo-img" style="background-color: white; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;">
+                            <img src="favicon.png" alt="JT Tax & Accounting Logo" style="width: 40px; height: 40px;">
+                        </div>
+                        <div class="logo-text">JT <span>Tax & Accounting</span></div>
+                    </a>
+                    <p>Professional tax preparation and accounting services for individuals and small businesses in Scranton, PA. Your financial success is our priority.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Tax Preparation</a></li>
+                        <li><a href="services.html">Bookkeeping</a></li>
+                        <li><a href="services.html">Payroll Services</a></li>
+                        <li><a href="services.html">Financial Consulting</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; <span id="currentYear"></span> JT Tax & Accounting. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
