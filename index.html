@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JT Tax & Accounting - Professional Tax Services in Scranton, PA</title>
-    <meta name="description" content="Professional tax preparation, accounting, and bookkeeping services in Scranton, PA. 10+ years of experience serving individuals and small businesses.">
+    <meta name="description" content="Professional tax preparation, accounting, and bookkeeping services in Scranton, PA. 10+ years of experience serving individuals and small businesses. Get expert tax help today!">
+    <meta name="keywords" content="tax preparation Scranton, accounting services PA, bookkeeping Scranton, tax advisor, small business accounting, tax filing, IRS help, Pennsylvania taxes">
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -420,6 +421,148 @@
             font-size: 1.2rem;
         }
 
+        /* NEW: Content Sections for AdSense */
+        .content-section {
+            padding: 80px 0;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            align-items: start;
+        }
+
+        .content-card {
+            background: white;
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .content-card h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .content-card ul {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .content-card li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .content-card li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .testimonials {
+            background: var(--light);
+            padding: 80px 0;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .testimonial-card:before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--light-gray);
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-family: serif;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 80px 0;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            border: 1px solid var(--light-gray);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            background: white;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: var(--light);
+        }
+
+        .faq-answer.active {
+            padding: 20px;
+            max-height: 500px;
+        }
+
         /* Footer */
         footer {
             background-color: var(--dark);
@@ -528,6 +671,10 @@
             .section-title h2 {
                 font-size: 2.2rem;
             }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 768px) {
@@ -565,6 +712,10 @@
             .section-title h2 {
                 font-size: 2rem;
             }
+            
+            .stat-number {
+                font-size: 2.5rem;
+            }
         }
 
         @media (max-width: 576px) {
@@ -582,6 +733,10 @@
             
             .section-title h2 {
                 font-size: 1.8rem;
+            }
+            
+            .content-card {
+                padding: 25px;
             }
         }
 
@@ -629,7 +784,6 @@
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="services.html">Services</a></li>
                     <li><a href="contact.html">Contact</a></li>
-                    <li><div class="gtranslate_wrapper"></div></li>
                 </ul>
             </nav>
         </div>
@@ -641,7 +795,8 @@
             <div class="hero-content">
                 <div class="hero-text fade-in">
                     <h1>Expert <span>Tax & Accounting</span> Services in Scranton, PA</h1>
-                    <p>Professional, reliable, and personalized financial solutions to help your business thrive. With 10+ years of experience, we offer comprehensive tax preparation, bookkeeping, and financial consulting services.</p>
+                    <p>Professional, reliable, and personalized financial solutions to help your business thrive. With 10+ years of experience, we offer comprehensive tax preparation, bookkeeping, and financial consulting services specifically tailored for Pennsylvania residents and businesses.</p>
+                    <p>We understand the unique tax challenges faced by individuals and small businesses in Scranton and throughout Lackawanna County. Our local expertise combined with professional accounting knowledge ensures you get the best possible financial outcomes.</p>
                     <div class="hero-buttons">
                         <a href="contact.html" class="btn">Get Free Consultation</a>
                         <a href="services.html" class="btn btn-outline">Our Services</a>
@@ -668,7 +823,7 @@
                         <i class="fas fa-calculator"></i>
                     </div>
                     <h3>Tax Preparation</h3>
-                    <p>Accurate and timely tax preparation services for individuals and businesses, maximizing your deductions and minimizing liabilities.</p>
+                    <p>Accurate and timely tax preparation services for individuals and businesses, maximizing your deductions and minimizing liabilities. We handle federal, Pennsylvania state, and local tax filings with precision.</p>
                 </div>
                 
                 <div class="service-card fade-in delay-1">
@@ -676,7 +831,7 @@
                         <i class="fas fa-book"></i>
                     </div>
                     <h3>Bookkeeping</h3>
-                    <p>Organized and detailed bookkeeping to keep your financial records accurate and up-to-date for better business decisions.</p>
+                    <p>Organized and detailed bookkeeping to keep your financial records accurate and up-to-date for better business decisions. We maintain clean financial records that make tax season stress-free.</p>
                 </div>
                 
                 <div class="service-card fade-in delay-2">
@@ -684,12 +839,79 @@
                         <i class="fas fa-chart-line"></i>
                     </div>
                     <h3>Financial Consulting</h3>
-                    <p>Strategic financial advice to help you plan for growth, manage cash flow, and achieve your business goals.</p>
+                    <p>Strategic financial advice to help you plan for growth, manage cash flow, and achieve your business goals. We provide insights that help Pennsylvania businesses thrive in today's competitive market.</p>
                 </div>
             </div>
             
             <div class="text-center fade-in delay-3" style="text-align: center; margin-top: 40px;">
                 <a href="services.html" class="btn">View All Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="content-section">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Why Choose JT Tax & Accounting?</h2>
+                <p>Professional excellence with a personal touch</p>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-item fade-in">
+                    <div class="stat-number">10+</div>
+                    <h3>Years Experience</h3>
+                    <p>Decade of tax expertise in Pennsylvania</p>
+                </div>
+                <div class="stat-item fade-in delay-1">
+                    <div class="stat-number">100%</div>
+                    <h3>Accuracy Guarantee</h3>
+                    <p>We stand behind our work</p>
+                </div>
+                <div class="stat-item fade-in delay-2">
+                    <div class="stat-number">500+</div>
+                    <h3>Clients Served</h3>
+                    <p>Satisfied individuals & businesses</p>
+                </div>
+                <div class="stat-item fade-in delay-3">
+                    <div class="stat-number">24/7</div>
+                    <h3>Support Available</h3>
+                    <p>Extended hours during tax season</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Section 1 -->
+    <section class="content-section" style="background-color: var(--light);">
+        <div class="container">
+            <div class="content-grid">
+                <div class="content-card fade-in">
+                    <h3>Tax Services for Pennsylvania Residents</h3>
+                    <p>At JT Tax & Accounting, we specialize in Pennsylvania tax law and regulations. Our expertise includes:</p>
+                    <ul>
+                        <li>Pennsylvania Personal Income Tax preparation</li>
+                        <li>PA Business Tax filings for corporations and LLCs</li>
+                        <li>Local Earned Income Tax (EIT) compliance</li>
+                        <li>Sales & Use Tax for Pennsylvania businesses</li>
+                        <li>Property Tax relief and assessment appeals</li>
+                        <li>Pennsylvania tax credit optimization</li>
+                    </ul>
+                    <p>We stay current with Pennsylvania Department of Revenue updates to ensure your compliance while maximizing your tax savings.</p>
+                </div>
+                <div class="content-card fade-in delay-1">
+                    <h3>Small Business Accounting Solutions</h3>
+                    <p>Running a business in Scranton comes with unique financial challenges. We help local businesses with:</p>
+                    <ul>
+                        <li>Monthly bookkeeping and financial reporting</li>
+                        <li>Payroll processing and tax withholdings</li>
+                        <li>Business expense tracking and categorization</li>
+                        <li>Cash flow analysis and management</li>
+                        <li>Financial statement preparation</li>
+                        <li>Business tax planning and strategy</li>
+                    </ul>
+                    <p>Our goal is to provide you with clear financial insights so you can focus on growing your business while we handle the numbers.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -704,8 +926,61 @@
                 <div class="about-text fade-in delay-1">
                     <h2>About JT Tax & Accounting</h2>
                     <p>With over 10 years of experience in tax preparation and accounting, we provide reliable financial services to individuals and small businesses in Scranton and surrounding areas.</p>
-                    <p>Founded with a commitment to personalized service, attention to detail, and building lasting relationships with our clients. We understand that every client has unique financial needs.</p>
+                    <p>Founded with a commitment to personalized service, attention to detail, and building lasting relationships with our clients. We understand that every client has unique financial needs and goals. Our Scranton-based office allows us to provide face-to-face service with the personal touch that online services can't match.</p>
+                    <p>We take pride in helping our neighbors in Northeastern Pennsylvania achieve financial success through proper tax planning and sound accounting practices.</p>
                     <a href="about.html" class="btn">Learn More About Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Frequently Asked Questions</h2>
+                <p>Get answers to common tax and accounting questions</p>
+            </div>
+            
+            <div class="fade-in">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What documents do I need for tax preparation?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Typically you'll need: W-2 forms, 1099 forms, investment income statements, mortgage interest statements, charitable contribution receipts, business income and expense records, and last year's tax return. We provide a detailed checklist during your consultation.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        When should I contact a tax professional?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Contact us if: you're starting a business, experiencing major life changes (marriage, divorce, home purchase), have investment income, own rental properties, are self-employed, or if you've received an IRS notice. Early consultation can save you money and stress.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What's the difference between bookkeeping and accounting?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Bookkeeping involves recording daily financial transactions, while accounting involves interpreting, classifying, analyzing, and summarizing financial data. We provide both services to give you complete financial clarity.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How can you help me save on taxes?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We identify all eligible deductions and credits, implement tax-efficient strategies, help with retirement planning, advise on business structure optimization, and provide year-round tax planning to minimize your tax liability legally and ethically.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -731,6 +1006,7 @@
                         <div>
                             <h4>Our Office</h4>
                             <p>2109 Dorothy Street<br>Scranton, Pennsylvania 18504</p>
+                            <p style="font-size: 0.9rem; color: var(--gray); margin-top: 5px;">Serving Scranton, Wilkes-Barre, and all of Lackawanna County</p>
                         </div>
                     </div>
                     
@@ -741,6 +1017,7 @@
                         <div>
                             <h4>Phone Number</h4>
                             <p>(570) 504-4296</p>
+                            <p style="font-size: 0.9rem; color: var(--gray); margin-top: 5px;">Monday-Friday: 9:00 AM - 5:00 PM</p>
                         </div>
                     </div>
                     
@@ -751,6 +1028,7 @@
                         <div>
                             <h4>Email Address</h4>
                             <p>info@jt-taxes.com</p>
+                            <p style="font-size: 0.9rem; color: var(--gray); margin-top: 5px;">Response within 24 hours</p>
                         </div>
                     </div>
                 </div>
@@ -817,6 +1095,8 @@
                         <li><a href="services.html">Bookkeeping</a></li>
                         <li><a href="services.html">Payroll Services</a></li>
                         <li><a href="services.html">Financial Consulting</a></li>
+                        <li><a href="services.html">Business Tax Planning</a></li>
+                        <li><a href="services.html">IRS Representation</a></li>
                     </ul>
                 </div>
                 
@@ -826,11 +1106,13 @@
                         <li><a href="terms.html">Terms of Service</a></li>
                         <li><a href="privacy.html">Privacy Policy</a></li>
                     </ul>
+                    <h3 style="margin-top: 30px;">Service Area</h3>
+                    <p style="font-size: 0.9rem;">Serving: Scranton, Wilkes-Barre, Clarks Summit, Dunmore, Moscow, and throughout Northeastern Pennsylvania</p>
                 </div>
             </div>
             
             <div class="copyright">
-                <p>&copy; <span id="currentYear"></span> JT Tax & Accounting. All rights reserved.</p>
+                <p>&copy; <span id="currentYear"></span> JT Tax & Accounting. All rights reserved. | Professional tax services in Scranton, Pennsylvania</p>
             </div>
         </div>
     </footer>
@@ -902,10 +1184,32 @@
             this.reset();
         });
 
-window.gtranslateSettings = {"default_language":"en","languages":["en","fr","it","es"],"wrapper_selector":".gtranslate_wrapper","alt_flags":{"en":"usa","es":"argentina"}}
-        
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const icon = question.querySelector('i');
+                
+                // Close other open FAQs
+                document.querySelectorAll('.faq-answer').forEach(otherAnswer => {
+                    if (otherAnswer !== answer && otherAnswer.classList.contains('active')) {
+                        otherAnswer.classList.remove('active');
+                        otherAnswer.previousElementSibling.querySelector('i').classList.remove('fa-chevron-up');
+                        otherAnswer.previousElementSibling.querySelector('i').classList.add('fa-chevron-down');
+                    }
+                });
+                
+                // Toggle current FAQ
+                answer.classList.toggle('active');
+                if (answer.classList.contains('active')) {
+                    icon.classList.remove('fa-chevron-down');
+                    icon.classList.add('fa-chevron-up');
+                } else {
+                    icon.classList.remove('fa-chevron-up');
+                    icon.classList.add('fa-chevron-down');
+                }
+            });
+        });
     </script>
-    <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
-        <script data-goatcounter="https://jt-taxes.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
