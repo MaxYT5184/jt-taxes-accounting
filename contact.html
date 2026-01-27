@@ -261,10 +261,10 @@
                     <p>Fill out the form below and we'll get back to you within 24 hours.</p>
                     
                     <form action="https://formspree.io/f/xpqdjenw" method="POST" id="contactPageForm">
-                        <!-- Formspree Hidden Fields -->
+                        <!-- Formspree Hidden Fields - REMOVED DUPLICATE _cc FIELD -->
                         <input type="hidden" name="_subject" value="New Contact Form Submission - JT Tax & Accounting">
-                        <input type="hidden" name="_replyto" value="info@jt-taxes.com">
-                        <input type="hidden" name="_cc" value="info@jt-taxes.com">
+                        <input type="hidden" name="_replyto" value="_replyto">
+                        <!-- Don't use _cc with same email as recipient - set recipient in Formspree dashboard -->
                         <input type="text" name="_gotcha" style="display:none">
                         
                         <div class="form-group">
