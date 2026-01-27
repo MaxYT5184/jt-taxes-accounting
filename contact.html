@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - JT Tax & Accounting | Scranton, PA Tax Services</title>
-    <meta name="description" content="Contact JT Tax & Accounting in Scranton, PA for tax preparation, bookkeeping, and financial consulting. Call (570) 504-4296 or email info@jt-taxes.com">
+    <meta name="description" content="Contact JT Tax & Accounting in Scranton, PA for tax preparation, bookkeeping, and financial consulting. Call (570) 504-4296 or email info@jt-taxes.com. Get expert tax help in Northeastern Pennsylvania.">
+    <meta name="keywords" content="contact tax preparer Scranton, tax help PA, accounting services contact, bookkeeping consultation, tax advisor near me, Pennsylvania tax help">
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -57,6 +58,80 @@
         .contact-icon i { color: var(--primary); font-size: 1.2rem; }
         .map-container { margin-top: 40px; border-radius: var(--border-radius); overflow: hidden; height: 300px; }
         
+        /* NEW: Content Sections */
+        .content-section {
+            padding: 60px 0;
+            background-color: var(--light);
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 30px;
+        }
+        
+        .content-card {
+            background: white;
+            padding: 35px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+        
+        .content-card h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.6rem;
+        }
+        
+        .content-card ul {
+            list-style: none;
+            margin: 20px 0;
+        }
+        
+        .content-card li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .content-card li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+        
+        .checklist-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            background: #f0f9ff;
+            border-radius: var(--border-radius);
+        }
+        
+        .checklist-icon {
+            width: 30px;
+            height: 30px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+        
         /* Footer */
         footer { background-color: var(--dark); color: white; padding: 70px 0 20px; }
         .footer-content { display: flex; flex-wrap: wrap; gap: 50px; margin-bottom: 50px; }
@@ -108,6 +183,8 @@
             .mobile-menu-btn { display: block; }
             .contact-container { flex-direction: column; }
             .g-recaptcha { transform: scale(0.85); }
+            .content-grid { grid-template-columns: 1fr; }
+            .content-card { padding: 25px; }
         }
         
         /* Animation Classes */
@@ -176,8 +253,8 @@
     <!-- Page Header -->
     <section class="page-header">
         <div class="container">
-            <h1 class="fade-in">Contact Us</h1>
-            <p class="fade-in delay-1">Get in touch for a free consultation. We're here to help with all your tax and accounting needs.</p>
+            <h1 class="fade-in">Contact JT Tax & Accounting</h1>
+            <p class="fade-in delay-1">Get expert tax and accounting help in Scranton, PA. We're here to provide personalized financial solutions for individuals and businesses throughout Northeastern Pennsylvania.</p>
         </div>
     </section>
 
@@ -186,9 +263,9 @@
         <div class="container">
             <div class="contact-container">
                 <div class="contact-info fade-in">
-                    <h2>Visit Our Office</h2>
+                    <h2>Visit Our Scranton Office</h2>
                     <div style="margin-bottom: 30px;">
-                        <img src="office-image.jpg" alt="JT Tax & Accounting Office" style="width: 100%; height: 300px; object-fit: cover; border-radius: var(--border-radius);">
+                        <img src="office-image.jpg" alt="JT Tax & Accounting Office in Scranton, PA" style="width: 100%; height: 300px; object-fit: cover; border-radius: var(--border-radius);">
                     </div>
                     
                     <div class="contact-info-item">
@@ -198,6 +275,7 @@
                         <div>
                             <h3>Address</h3>
                             <p>2109 Dorothy Street<br>Scranton, Pennsylvania 18504</p>
+                            <p style="font-size: 0.9rem; color: var(--gray); margin-top: 5px;">Conveniently located in Scranton with easy access from I-81 and I-84</p>
                         </div>
                     </div>
                     
@@ -209,6 +287,7 @@
                             <h3>Phone</h3>
                             <p>(570) 504-4296</p>
                             <p>Monday-Friday: 9:00 AM - 5:00 PM</p>
+                            <p style="font-size: 0.9rem; color: var(--gray); margin-top: 5px;">Extended hours available during tax season (January-April)</p>
                         </div>
                     </div>
                     
@@ -220,6 +299,7 @@
                             <h3>Email</h3>
                             <p>info@jt-taxes.com</p>
                             <p>For general inquiries and appointments</p>
+                            <p style="font-size: 0.9rem; color: var(--gray); margin-top: 5px;">We respond to all emails within 24 business hours</p>
                         </div>
                     </div>
                     
@@ -229,8 +309,8 @@
                         </div>
                         <div>
                             <h3>Business Hours</h3>
-                            <p>Monday - Friday: 8:00 AM - 5:00 PM</p>
-                            <p>Saturday: Closed (Tax Season maybe)</p>
+                            <p>Monday - Friday: 9:00 AM - 5:00 PM</p>
+                            <p>Saturday: By appointment only (Tax Season)</p>
                             <p>Sunday: Closed</p>
                         </div>
                     </div>
@@ -240,13 +320,13 @@
                             <i class="fas fa-car"></i>
                         </div>
                         <div>
-                            <h3>Parking</h3>
-                            <p>Street parking available. Please park in designated areas only.</p>
+                            <h3>Parking & Accessibility</h3>
+                            <p>Ample street parking available directly in front of our office. Our location is wheelchair accessible with step-free entry. Please park in designated areas only to avoid parking violations.</p>
                         </div>
                     </div>
                     
                     <h3 style="margin-top: 30px;">Service Area</h3>
-                    <p>We serve clients throughout Scranton and surrounding areas including:</p>
+                    <p>We proudly serve clients throughout Northeastern Pennsylvania including:</p>
                     <ul>
                         <li>Scranton, PA</li>
                         <li>Wilkes-Barre, PA</li>
@@ -254,12 +334,15 @@
                         <li>Dunmore, PA</li>
                         <li>Moscow, PA</li>
                         <li>And throughout Lackawanna County</li>
+                        <li>Luzerne County areas</li>
+                        <li>Wyoming County regions</li>
                     </ul>
+                    <p style="margin-top: 15px; font-size: 0.9rem; color: var(--gray);">Remote consultations available for clients throughout Pennsylvania</p>
                 </div>
                 
                 <div class="contact-form fade-in delay-1">
                     <h2>Send Us a Message</h2>
-                    <p>Fill out the form below and we'll get back to you within 24 hours.</p>
+                    <p>Fill out the form below and we'll get back to you within 24 hours. Our consultations are always free and without obligation.</p>
                     
                     <form action="https://formspree.io/f/xpqdjenw" method="POST" id="contactPageForm">
                         <!-- Formspree Hidden Fields - Simplified -->
@@ -297,7 +380,7 @@
                         
                         <div class="form-group">
                             <label for="contactMessage">Message *</label>
-                            <textarea id="contactMessage" name="message" class="form-control" rows="6" placeholder="How can we help you? Please include any specific questions or concerns." required></textarea>
+                            <textarea id="contactMessage" name="message" class="form-control" rows="6" placeholder="How can we help you? Please include any specific questions or concerns about your tax situation." required></textarea>
                         </div>
                         
                         <!-- reCAPTCHA v2 - TEMPORARILY DISABLED FOR TESTING -->
@@ -332,10 +415,11 @@
                     <div style="margin-top: 30px; padding: 20px; background: var(--light); border-radius: var(--border-radius);">
                         <h4>What to Expect After Contacting Us</h4>
                         <ul style="margin-top: 10px;">
-                            <li>Response within 24 hours</li>
-                            <li>Free initial consultation</li>
-                            <li>No-obligation service quote</li>
-                            <li>Flexible appointment scheduling</li>
+                            <li><strong>Response within 24 hours:</strong> We prioritize all inquiries</li>
+                            <li><strong>Free initial consultation:</strong> No cost, no obligation assessment</li>
+                            <li><strong>Transparent pricing:</strong> Clear quote before any work begins</li>
+                            <li><strong>Flexible scheduling:</strong> In-person or virtual appointments available</li>
+                            <li><strong>Personalized service:</strong> Tailored solutions for your unique situation</li>
                         </ul>
                     </div>
                 </div>
@@ -351,6 +435,138 @@
                     loading="lazy" 
                     referrerpolicy="no-referrer-when-downgrade">
                 </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW: Content Section 1 - How to Prepare -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="fade-in" style="text-align: center; margin-bottom: 40px;">How to Prepare for Your First Visit</h2>
+            <div class="content-grid">
+                <div class="content-card fade-in">
+                    <h3>Essential Documents for Tax Preparation</h3>
+                    <p>To make your tax preparation process smooth and efficient, please gather these important documents before your appointment:</p>
+                    <div class="checklist-grid">
+                        <div class="checklist-item">
+                            <div class="checklist-icon">1</div>
+                            <div>W-2 forms from all employers</div>
+                        </div>
+                        <div class="checklist-item">
+                            <div class="checklist-icon">2</div>
+                            <div>1099 forms for freelance/contract work</div>
+                        </div>
+                        <div class="checklist-item">
+                            <div class="checklist-icon">3</div>
+                            <div>Investment income statements (1099-DIV, 1099-INT)</div>
+                        </div>
+                        <div class="checklist-item">
+                            <div class="checklist-icon">4</div>
+                            <div>Mortgage interest statements (Form 1098)</div>
+                        </div>
+                        <div class="checklist-item">
+                            <div class="checklist-icon">5</div>
+                            <div>Property tax receipts for Pennsylvania</div>
+                        </div>
+                        <div class="checklist-item">
+                            <div class="checklist-icon">6</div>
+                            <div>Charitable contribution receipts</div>
+                        </div>
+                        <div class="checklist-item">
+                            <div class="checklist-icon">7</div>
+                            <div>Business expense records if self-employed</div>
+                        </div>
+                        <div class="checklist-item">
+                            <div class="checklist-icon">8</div>
+                            <div>Last year's tax return for reference</div>
+                        </div>
+                    </div>
+                    <p style="margin-top: 20px;">Don't worry if you're missing some documents - we can help you obtain duplicates or work with what you have available.</p>
+                </div>
+                
+                <div class="content-card fade-in delay-1">
+                    <h3>Why Local Service Matters for Pennsylvania Taxes</h3>
+                    <p>Choosing a local Scranton tax professional offers significant advantages for Pennsylvania residents and businesses:</p>
+                    <ul>
+                        <li><strong>Pennsylvania Tax Law Expertise:</strong> We stay current with PA Department of Revenue updates and local tax regulations</li>
+                        <li><strong>Understanding Local Economy:</strong> Knowledge of Scranton's business environment and economic factors</li>
+                        <li><strong>Face-to-Face Service:</strong> Personal meetings to discuss complex financial situations</li>
+                        <li><strong>Quick Response Time:</strong> Local accessibility means faster service when you need it</li>
+                        <li><strong>Community Knowledge:</strong> Familiarity with local deductions and credits specific to Northeastern PA</li>
+                        <li><strong>Long-term Relationship:</strong> Building ongoing relationships rather than one-time transactions</li>
+                    </ul>
+                    <p>As your local tax partner, we provide continuity and consistency in managing your financial affairs year after year.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW: Content Section 2 - Process & Benefits -->
+    <section class="content-section" style="background-color: white;">
+        <div class="container">
+            <h2 class="fade-in" style="text-align: center; margin-bottom: 40px;">Our Consultation Process & Benefits</h2>
+            <div class="content-grid">
+                <div class="content-card fade-in">
+                    <h3>What Happens After You Contact Us</h3>
+                    <p>Here's our step-by-step process to ensure you receive the best possible service:</p>
+                    <ul>
+                        <li><strong>Initial Contact:</strong> We'll respond within 24 hours to schedule your free consultation</li>
+                        <li><strong>Discovery Meeting:</strong> We discuss your financial situation, goals, and specific needs</li>
+                        <li><strong>Document Review:</strong> We analyze your financial documents and tax history</li>
+                        <li><strong>Customized Plan:</strong> We create a tailored tax strategy based on your unique circumstances</li>
+                        <li><strong>Transparent Pricing:</strong> You receive a clear, detailed quote with no hidden fees</li>
+                        <li><strong>Ongoing Support:</strong> We remain available for questions and provide year-round guidance</li>
+                        <li><strong>Regular Updates:</strong> We keep you informed about tax law changes affecting Pennsylvania residents</li>
+                    </ul>
+                    <p>Our process is designed to be transparent, collaborative, and focused on achieving your financial objectives.</p>
+                </div>
+                
+                <div class="content-card fade-in delay-1">
+                    <h3>Benefits of Working With Our Scranton Office</h3>
+                    <p>When you choose JT Tax & Accounting, you gain access to:</p>
+                    <div class="checklist-grid">
+                        <div class="checklist-item">
+                            <div class="checklist-icon"><i class="fas fa-shield-alt"></i></div>
+                            <div><strong>10+ Years Experience:</strong> Decade of Pennsylvania tax expertise</div>
+                        </div>
+                        <div class="checklist-item">
+                            <div class="checklist-icon"><i class="fas fa-bullseye"></i></div>
+                            <div><strong>Accuracy Guarantee:</strong> We stand behind every return we prepare</div>
+                        </div>
+                        <div class="checklist-item">
+                            <div class="checklist-icon"><i class="fas fa-lock"></i></div>
+                            <div><strong>Secure Handling:</strong> Your financial information is protected with bank-level security</div>
+                        </div>
+                        <div class="checklist-item">
+                            <div class="checklist-icon"><i class="fas fa-clock"></i></div>
+                            <div><strong>Timely Filing:</strong> We ensure all deadlines are met without stress</div>
+                        </div>
+                        <div class="checklist-item">
+                            <div class="checklist-icon"><i class="fas fa-chart-line"></i></div>
+                            <div><strong>Tax Optimization:</strong> We identify every legal deduction and credit available</div>
+                        </div>
+                        <div class="checklist-item">
+                            <div class="checklist-icon"><i class="fas fa-headset"></i></div>
+                            <div><strong>Personal Support:</strong> Direct access to your tax professional, not a call center</div>
+                        </div>
+                    </div>
+                    <p style="margin-top: 20px;">We combine professional expertise with personal service to deliver exceptional results for our Scranton area clients.</p>
+                    <a href="services.html" class="btn" style="margin-top: 20px; display: inline-block;">View Our Full Services</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section style="padding: 60px 0; background: var(--primary); color: white; text-align: center;">
+        <div class="container">
+            <h2 class="fade-in" style="color: white; margin-bottom: 20px;">Ready to Get Started?</h2>
+            <p class="fade-in delay-1" style="max-width: 700px; margin: 0 auto 30px; color: rgba(255,255,255,0.9);">
+                Contact JT Tax & Accounting today for a free, no-obligation consultation. Let us show you how our Scranton-based tax expertise can help you achieve better financial outcomes.
+            </p>
+            <div class="fade-in delay-2">
+                <a href="#contact-form" class="btn" style="background: white; color: var(--primary); margin: 10px;">Send Us a Message</a>
+                <a href="tel:5705044296" class="btn btn-outline" style="border-color: white; color: white; margin: 10px;">Call Now: (570) 504-4296</a>
             </div>
         </div>
     </section>
@@ -401,11 +617,13 @@
                         <li><a href="terms.html">Terms of Service</a></li>
                         <li><a href="privacy.html">Privacy Policy</a></li>
                     </ul>
+                    <h3 style="margin-top: 30px;">Service Area</h3>
+                    <p style="font-size: 0.9rem;">Serving: Scranton, Wilkes-Barre, Clarks Summit, Dunmore, Moscow, and throughout Northeastern Pennsylvania</p>
                 </div>
             </div>
             
             <div class="copyright">
-                <p>&copy; <span id="currentYear"></span> JT Tax & Accounting. All rights reserved.</p>
+                <p>&copy; <span id="currentYear"></span> JT Tax & Accounting. All rights reserved. | Professional tax services in Scranton, Pennsylvania</p>
             </div>
         </div>
     </footer>
@@ -568,6 +786,14 @@
             });
         });
         
+        // Smooth scroll for anchor link
+        document.querySelector('a[href="#contact-form"]')?.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector('#contactPageForm')?.scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+
 window.gtranslateSettings = {"default_language":"en","languages":["en","fr","it","es"],"wrapper_selector":".gtranslate_wrapper","alt_flags":{"en":"usa","es":"argentina"}}
 
     </script>
