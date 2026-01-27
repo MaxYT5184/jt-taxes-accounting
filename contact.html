@@ -261,10 +261,8 @@
                     <p>Fill out the form below and we'll get back to you within 24 hours.</p>
                     
                     <form action="https://formspree.io/f/xpqdjenw" method="POST" id="contactPageForm">
-                        <!-- Formspree Hidden Fields - REMOVED DUPLICATE _cc FIELD -->
+                        <!-- Formspree Hidden Fields - Simplified -->
                         <input type="hidden" name="_subject" value="New Contact Form Submission - JT Tax & Accounting">
-                        <input type="hidden" name="_replyto" value="_replyto">
-                        <!-- Don't use _cc with same email as recipient - set recipient in Formspree dashboard -->
                         <input type="text" name="_gotcha" style="display:none">
                         
                         <div class="form-group">
@@ -301,15 +299,17 @@
                             <textarea id="contactMessage" name="message" class="form-control" rows="6" placeholder="How can we help you? Please include any specific questions or concerns." required></textarea>
                         </div>
                         
-                        <!-- reCAPTCHA v2 -->
+                        <!-- reCAPTCHA v2 - TEMPORARILY DISABLED FOR TESTING -->
+                        <!--
                         <div class="form-group">
                             <div class="g-recaptcha" data-sitekey="6LeRY1csAAAAAJSv7z8a05dCU4o3_UVb1tOaCCCV" data-callback="recaptchaCallback"></div>
                             <div id="recaptcha-error" class="recaptcha-error">
                                 <i class="fas fa-exclamation-circle"></i> Please complete the reCAPTCHA
                             </div>
                         </div>
+                        -->
                         
-                        <button type="submit" class="btn btn-secondary" id="submitBtn" style="width: 100%;" disabled>
+                        <button type="submit" class="btn btn-secondary" id="submitBtn" style="width: 100%;">
                             <span class="btn-text">Send Message</span>
                             <span class="btn-spinner" style="display: none;">
                                 <i class="fas fa-spinner fa-spin"></i> Sending...
@@ -317,23 +317,13 @@
                         </button>
                     </form>
                     
-                    <!-- Success/Error Messages -->
-                    <div id="form-success" class="form-message form-success" style="display: none;">
-                        <div style="display: flex; align-items: center; gap: 10px;">
-                            <i class="fas fa-check-circle" style="font-size: 1.2rem;"></i>
-                            <div>
-                                <strong>Thank you, <span id="success-name"></span>!</strong>
-                                <p style="margin-top: 5px; margin-bottom: 0;">Your message has been sent. We'll get back to you within 24 hours.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
+                    <!-- Error Messages (Will show here before redirect) -->
                     <div id="form-error" class="form-message form-error" style="display: none;">
                         <div style="display: flex; align-items: center; gap: 10px;">
                             <i class="fas fa-exclamation-circle" style="font-size: 1.2rem;"></i>
                             <div>
-                                <strong>Error Sending Message</strong>
-                                <p style="margin-top: 5px; margin-bottom: 0;">There was an error sending your message. Please try again or call us at <strong>(570) 504-4296</strong>.</p>
+                                <strong id="error-title">Error Sending Message</strong>
+                                <p id="error-details" style="margin-top: 5px; margin-bottom: 0;">There was an error sending your message. Please try again or call us at <strong>(570) 504-4296</strong>.</p>
                             </div>
                         </div>
                     </div>
@@ -456,87 +446,105 @@
         window.addEventListener('load', fadeInOnScroll);
         window.addEventListener('scroll', fadeInOnScroll);
         
-        // Form submission handling
+        // Form submission handling with better error reporting
         const contactForm = document.getElementById('contactPageForm');
-        const submitBtn = document.getElementById('submitBtn');
-        const recaptchaError = document.getElementById('recaptcha-error');
-        const formSuccess = document.getElementById('form-success');
         const formError = document.getElementById('form-error');
-        const successName = document.getElementById('success-name');
-        
-        // reCAPTCHA callback function
-        window.recaptchaCallback = function() {
-            submitBtn.disabled = false;
-            recaptchaError.style.display = 'none';
-        };
+        const errorTitle = document.getElementById('error-title');
+        const errorDetails = document.getElementById('error-details');
         
         // Handle form submission
         if (contactForm) {
             contactForm.addEventListener('submit', async function(e) {
                 e.preventDefault();
                 
-                // Check if reCAPTCHA is completed
-                const recaptchaResponse = grecaptcha.getResponse();
-                if (!recaptchaResponse) {
-                    recaptchaError.style.display = 'block';
-                    return;
-                }
-                
-                // Show loading state
+                const submitBtn = this.querySelector('button[type="submit"]');
                 const btnText = submitBtn.querySelector('.btn-text');
                 const btnSpinner = submitBtn.querySelector('.btn-spinner');
+                
+                // Show loading state
                 btnText.style.display = 'none';
                 btnSpinner.style.display = 'inline';
                 submitBtn.disabled = true;
                 
-                // Hide any previous messages
-                formSuccess.style.display = 'none';
+                // Hide any previous error messages
                 formError.style.display = 'none';
                 
-                // Get form data
-                const formData = new FormData(this);
-                
                 try {
+                    console.log('Submitting form to:', this.action);
+                    
                     const response = await fetch(this.action, {
                         method: 'POST',
-                        body: formData,
+                        body: new FormData(this),
                         headers: {
                             'Accept': 'application/json'
                         }
                     });
                     
+                    console.log('Response status:', response.status, response.statusText);
+                    
                     if (response.ok) {
-                        // Show success message
-                        const name = document.getElementById('contactName').value;
-                        successName.textContent = name;
-                        formSuccess.style.display = 'block';
-                        
-                        // Reset form
-                        this.reset();
-                        
-                        // Reset reCAPTCHA
-                        grecaptcha.reset();
-                        submitBtn.disabled = true;
-                        
-                        // Hide success message after 10 seconds
-                        setTimeout(() => {
-                            formSuccess.style.display = 'none';
-                        }, 10000);
+                        // SUCCESS - Redirect to success page
+                        console.log('Form submitted successfully, redirecting...');
+                        window.location.href = 'email/contact-form/successful.html';
+                        return; // Stop further execution
                     } else {
-                        throw new Error('Form submission failed');
+                        // Try to get error details from response
+                        let errorMessage = `Server responded with status: ${response.status}`;
+                        try {
+                            const errorData = await response.json();
+                            console.error('Error data:', errorData);
+                            
+                            if (errorData.error) {
+                                errorMessage = errorData.error;
+                            } else if (errorData.errors && errorData.errors.length > 0) {
+                                errorMessage = errorData.errors.map(err => err.message).join(', ');
+                            }
+                        } catch (jsonError) {
+                            // If response is not JSON, try to get text
+                            const textError = await response.text();
+                            if (textError) {
+                                errorMessage = textError.substring(0, 200) + '...';
+                            }
+                        }
+                        
+                        // Show detailed error message
+                        errorTitle.textContent = 'Error Sending Message';
+                        errorDetails.innerHTML = `
+                            ${errorMessage}<br><br>
+                            Please try again or call us at <strong>(570) 504-4296</strong>.
+                            <br><small>Form endpoint: ${this.action}</small>
+                        `;
+                        formError.style.display = 'block';
+                        
+                        // Hide error after 15 seconds
+                        setTimeout(() => {
+                            formError.style.display = 'none';
+                        }, 15000);
                     }
                 } catch (error) {
-                    // Show error message
+                    console.error('Network or other error:', error);
+                    
+                    // Show network error
+                    errorTitle.textContent = 'Network Error';
+                    errorDetails.innerHTML = `
+                        Unable to connect to the server. This could be due to:<br>
+                        1. No internet connection<br>
+                        2. Server is down<br>
+                        3. Browser security restrictions<br><br>
+                        Please check your connection and try again, or call us at <strong>(570) 504-4296</strong>.
+                        <br><small>Error: ${error.message}</small>
+                    `;
                     formError.style.display = 'block';
                     
-                    // Hide error message after 10 seconds
+                    // Hide error after 15 seconds
                     setTimeout(() => {
                         formError.style.display = 'none';
-                    }, 10000);
+                    }, 15000);
                 } finally {
                     // Reset button state
                     btnText.style.display = 'inline';
                     btnSpinner.style.display = 'none';
+                    submitBtn.disabled = false;
                 }
             });
         }
