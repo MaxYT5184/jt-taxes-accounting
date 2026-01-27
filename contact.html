@@ -8,6 +8,8 @@
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- reCAPTCHA Script -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <style>
         /* Same CSS as other pages */
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -71,12 +73,41 @@
         .social-links a:hover { background: var(--primary); transform: translateY(-3px); }
         .copyright { text-align: center; padding-top: 20px; border-top: 1px solid #334155; color: #94a3b8; font-size: 0.9rem; }
         
+        /* reCAPTCHA styling */
+        .g-recaptcha { transform: scale(0.95); transform-origin: 0 0; }
+        .g-recaptcha > div > div { width: 100% !important; }
+        
+        /* Success/Error Messages */
+        .form-message { 
+            margin-top: 20px; 
+            padding: 15px; 
+            border-radius: var(--border-radius);
+            display: none;
+        }
+        .form-success { 
+            background-color: #d1fae5; 
+            border-left: 4px solid #10b981; 
+            color: #065f46; 
+        }
+        .form-error { 
+            background-color: #fee2e2; 
+            border-left: 4px solid #ef4444; 
+            color: #991b1b; 
+        }
+        .recaptcha-error {
+            color: #dc2626; 
+            font-size: 0.875rem; 
+            margin-top: 5px; 
+            display: none;
+        }
+        
         /* Responsive */
         @media (max-width: 768px) {
             .nav-links { position: fixed; top: 80px; left: 0; width: 100%; background: white; flex-direction: column; padding: 20px 0; box-shadow: 0 10px 10px rgba(0,0,0,0.1); transform: translateY(-100%); opacity: 0; visibility: hidden; transition: var(--transition); z-index: 999; }
             .nav-links.active { transform: translateY(0); opacity: 1; visibility: visible; }
             .mobile-menu-btn { display: block; }
             .contact-container { flex-direction: column; }
+            .g-recaptcha { transform: scale(0.85); }
         }
         
         /* Animation Classes */
@@ -108,6 +139,12 @@
         }
         .btn-secondary:hover {
             background-color: #065f46;
+        }
+        .btn:disabled {
+            background-color: #94a3b8;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
         }
     </style>
 </head>
@@ -191,8 +228,8 @@
                         </div>
                         <div>
                             <h3>Business Hours</h3>
-                            <p>Monday - Friday: 9:00 AM - 5:00 PM</p>
-                            <p>Saturday: 10:00 AM - 2:00 PM (Tax Season Only)</p>
+                            <p>Monday - Friday: 8:00 AM - 5:00 PM</p>
+                            <p>Saturday: Closed (Tax Season maybe)</p>
                             <p>Sunday: Closed</p>
                         </div>
                     </div>
@@ -223,43 +260,83 @@
                     <h2>Send Us a Message</h2>
                     <p>Fill out the form below and we'll get back to you within 24 hours.</p>
                     
-                    <form id="contactPageForm">
+                    <form action="https://formspree.io/f/xpqdjenw" method="POST" id="contactPageForm">
+                        <!-- Formspree Hidden Fields -->
+                        <input type="hidden" name="_subject" value="New Contact Form Submission - JT Tax & Accounting">
+                        <input type="hidden" name="_replyto" value="info@jt-taxes.com">
+                        <input type="hidden" name="_cc" value="info@jt-taxes.com">
+                        <input type="text" name="_gotcha" style="display:none">
+                        
                         <div class="form-group">
                             <label for="contactName">Full Name *</label>
-                            <input type="text" id="contactName" class="form-control" placeholder="Your Name" required>
+                            <input type="text" id="contactName" name="name" class="form-control" placeholder="Your Name" required>
                         </div>
                         
                         <div class="form-group">
                             <label for="contactEmail">Email Address *</label>
-                            <input type="email" id="contactEmail" class="form-control" placeholder="Your Email" required>
+                            <input type="email" id="contactEmail" name="email" class="form-control" placeholder="Your Email" required>
                         </div>
                         
                         <div class="form-group">
                             <label for="contactPhone">Phone Number *</label>
-                            <input type="tel" id="contactPhone" class="form-control" placeholder="(570) 123-4567" required>
+                            <input type="tel" id="contactPhone" name="phone" class="form-control" placeholder="(570) 123-4567" required>
                         </div>
                         
                         <div class="form-group">
                             <label for="serviceType">Service Interested In *</label>
-                            <select id="serviceType" class="form-control" required>
+                            <select id="serviceType" name="service" class="form-control" required>
                                 <option value="">Select a service</option>
-                                <option value="tax">Tax Preparation</option>
-                                <option value="individual">Individual Taxes</option>
-                                <option value="business">Business Taxes</option>
-                                <option value="bookkeeping">Bookkeeping</option>
-                                <option value="payroll">Payroll Services</option>
-                                <option value="consulting">Financial Consulting</option>
-                                <option value="other">Other Inquiry</option>
+                                <option value="Tax Preparation">Tax Preparation</option>
+                                <option value="Individual Taxes">Individual Taxes</option>
+                                <option value="Business Taxes">Business Taxes</option>
+                                <option value="Bookkeeping">Bookkeeping</option>
+                                <option value="Payroll Services">Payroll Services</option>
+                                <option value="Financial Consulting">Financial Consulting</option>
+                                <option value="Other Inquiry">Other Inquiry</option>
                             </select>
                         </div>
                         
                         <div class="form-group">
                             <label for="contactMessage">Message *</label>
-                            <textarea id="contactMessage" class="form-control" rows="6" placeholder="How can we help you? Please include any specific questions or concerns." required></textarea>
+                            <textarea id="contactMessage" name="message" class="form-control" rows="6" placeholder="How can we help you? Please include any specific questions or concerns." required></textarea>
                         </div>
                         
-                        <button type="submit" class="btn btn-secondary" style="width: 100%;">Send Message</button>
+                        <!-- reCAPTCHA v2 -->
+                        <div class="form-group">
+                            <div class="g-recaptcha" data-sitekey="6LeRY1csAAAAAJSv7z8a05dCU4o3_UVb1tOaCCCV" data-callback="recaptchaCallback"></div>
+                            <div id="recaptcha-error" class="recaptcha-error">
+                                <i class="fas fa-exclamation-circle"></i> Please complete the reCAPTCHA
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-secondary" id="submitBtn" style="width: 100%;" disabled>
+                            <span class="btn-text">Send Message</span>
+                            <span class="btn-spinner" style="display: none;">
+                                <i class="fas fa-spinner fa-spin"></i> Sending...
+                            </span>
+                        </button>
                     </form>
+                    
+                    <!-- Success/Error Messages -->
+                    <div id="form-success" class="form-message form-success" style="display: none;">
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <i class="fas fa-check-circle" style="font-size: 1.2rem;"></i>
+                            <div>
+                                <strong>Thank you, <span id="success-name"></span>!</strong>
+                                <p style="margin-top: 5px; margin-bottom: 0;">Your message has been sent. We'll get back to you within 24 hours.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="form-error" class="form-message form-error" style="display: none;">
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <i class="fas fa-exclamation-circle" style="font-size: 1.2rem;"></i>
+                            <div>
+                                <strong>Error Sending Message</strong>
+                                <p style="margin-top: 5px; margin-bottom: 0;">There was an error sending your message. Please try again or call us at <strong>(570) 504-4296</strong>.</p>
+                            </div>
+                        </div>
+                    </div>
                     
                     <div style="margin-top: 30px; padding: 20px; background: var(--light); border-radius: var(--border-radius);">
                         <h4>What to Expect After Contacting Us</h4>
@@ -379,18 +456,107 @@
         window.addEventListener('load', fadeInOnScroll);
         window.addEventListener('scroll', fadeInOnScroll);
         
-        // Contact page form submission
-        document.getElementById('contactPageForm')?.addEventListener('submit', function(e) {
-            e.preventDefault();
+        // Form submission handling
+        const contactForm = document.getElementById('contactPageForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const recaptchaError = document.getElementById('recaptcha-error');
+        const formSuccess = document.getElementById('form-success');
+        const formError = document.getElementById('form-error');
+        const successName = document.getElementById('success-name');
+        
+        // reCAPTCHA callback function
+        window.recaptchaCallback = function() {
+            submitBtn.disabled = false;
+            recaptchaError.style.display = 'none';
+        };
+        
+        // Handle form submission
+        if (contactForm) {
+            contactForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                // Check if reCAPTCHA is completed
+                const recaptchaResponse = grecaptcha.getResponse();
+                if (!recaptchaResponse) {
+                    recaptchaError.style.display = 'block';
+                    return;
+                }
+                
+                // Show loading state
+                const btnText = submitBtn.querySelector('.btn-text');
+                const btnSpinner = submitBtn.querySelector('.btn-spinner');
+                btnText.style.display = 'none';
+                btnSpinner.style.display = 'inline';
+                submitBtn.disabled = true;
+                
+                // Hide any previous messages
+                formSuccess.style.display = 'none';
+                formError.style.display = 'none';
+                
+                // Get form data
+                const formData = new FormData(this);
+                
+                try {
+                    const response = await fetch(this.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+                    
+                    if (response.ok) {
+                        // Show success message
+                        const name = document.getElementById('contactName').value;
+                        successName.textContent = name;
+                        formSuccess.style.display = 'block';
+                        
+                        // Reset form
+                        this.reset();
+                        
+                        // Reset reCAPTCHA
+                        grecaptcha.reset();
+                        submitBtn.disabled = true;
+                        
+                        // Hide success message after 10 seconds
+                        setTimeout(() => {
+                            formSuccess.style.display = 'none';
+                        }, 10000);
+                    } else {
+                        throw new Error('Form submission failed');
+                    }
+                } catch (error) {
+                    // Show error message
+                    formError.style.display = 'block';
+                    
+                    // Hide error message after 10 seconds
+                    setTimeout(() => {
+                        formError.style.display = 'none';
+                    }, 10000);
+                } finally {
+                    // Reset button state
+                    btnText.style.display = 'inline';
+                    btnSpinner.style.display = 'none';
+                }
+            });
+        }
+        
+        // Optional: Add form validation
+        const formInputs = contactForm?.querySelectorAll('input, select, textarea');
+        formInputs?.forEach(input => {
+            input.addEventListener('blur', function() {
+                if (!this.checkValidity()) {
+                    this.style.borderColor = '#ef4444';
+                } else {
+                    this.style.borderColor = '';
+                }
+            });
             
-            const name = document.getElementById('contactName').value;
-            const email = document.getElementById('contactEmail').value;
-            const phone = document.getElementById('contactPhone').value;
-            const service = document.getElementById('serviceType').value;
-            const message = document.getElementById('contactMessage').value;
-            
-            alert(`Thank you, ${name}! Your consultation request has been received. We'll contact you at ${phone} to discuss ${service}.`);
-            this.reset();
+            input.addEventListener('input', function() {
+                if (this.checkValidity()) {
+                    this.style.borderColor = '';
+                }
+            });
         });
     </script>
 </body>
