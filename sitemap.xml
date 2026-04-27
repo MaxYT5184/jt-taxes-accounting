@@ -2,29 +2,46 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.jt-taxes.com/index.html</loc>
+<<<<<<< HEAD
     <lastmod>2026-01-27</lastmod>
+=======
+    <lastmod>2024-01-01</lastmod>
+>>>>>>> 3fb007a999c06734af39c340f2cfdbb9eeb6720f
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.jt-taxes.com/about.html</loc>
+<<<<<<< HEAD
     <lastmod>2026-01-27</lastmod>
+=======
+    <lastmod>2024-01-01</lastmod>
+>>>>>>> 3fb007a999c06734af39c340f2cfdbb9eeb6720f
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.jt-taxes.com/services.html</loc>
+<<<<<<< HEAD
     <lastmod>2026-01-27</lastmod>
+=======
+    <lastmod>2024-01-01</lastmod>
+>>>>>>> 3fb007a999c06734af39c340f2cfdbb9eeb6720f
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.jt-taxes.com/contact.html</loc>
+<<<<<<< HEAD
     <lastmod>2026-01-27</lastmod>
+=======
+    <lastmod>2024-01-01</lastmod>
+>>>>>>> 3fb007a999c06734af39c340f2cfdbb9eeb6720f
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
+<<<<<<< HEAD
     <loc>https://www.jt-taxes.com/tax-filing-basics.html</loc>
     <lastmod>2026-04-26</lastmod>
     <changefreq>yearly</changefreq>
@@ -93,12 +110,20 @@
   <url>
     <loc>https://www.jt-taxes.com/terms.html</loc>
     <lastmod>2026-04-26</lastmod>
+=======
+    <loc>https://www.jt-taxes.com/terms.html</loc>
+    <lastmod>2024-01-01</lastmod>
+>>>>>>> 3fb007a999c06734af39c340f2cfdbb9eeb6720f
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://www.jt-taxes.com/privacy.html</loc>
+<<<<<<< HEAD
     <lastmod>2026-04-26</lastmod>
+=======
+    <lastmod>2024-01-01</lastmod>
+>>>>>>> 3fb007a999c06734af39c340f2cfdbb9eeb6720f
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
