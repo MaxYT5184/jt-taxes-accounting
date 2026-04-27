@@ -8,11 +8,7 @@ Allow: /ads.txt
 Allow: /app-ads.txt
 
 # Sitemap location
-<<<<<<< HEAD
 Sitemap: https://www.jt-taxes.com/sitemap.xml
-=======
-Sitemap: https://jt-taxes.com/sitemap.xml
->>>>>>> 3fb007a999c06734af39c340f2cfdbb9eeb6720f
 
 # Important: Allow Google AdsBot for AdSense
 User-agent: AdsBot-Google
@@ -122,7 +118,6 @@ Allow: /*.svg$
 # - No cloaking (showing different content to bots vs users)
 # - No blocking of CSS/JS files
 # - Clear navigation and site structure
-<<<<<<< HEAD
 
 # Prevent crawling of duplicate parameters if using them
 # Disallow: /*?*
@@ -133,5 +128,3 @@ Allow: /*.svg$
 # - No cloaking (showing different content to bots vs users)
 # - No blocking of CSS/JS files
 # - Clear navigation and site structure
-=======
->>>>>>> 3fb007a999c06734af39c340f2cfdbb9eeb6720f
